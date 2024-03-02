@@ -21,6 +21,10 @@ setCourseGoals(currentCourseGoals => [
 ]);
 }
 
+function deleteGoalHandler(){
+  console.log('DELETE');
+}
+
   return (
     <View style={styles.container}>
       <Goalinput onAddGoal={addGoalHandler }/>
@@ -29,7 +33,11 @@ setCourseGoals(currentCourseGoals => [
       data={courseGoals} 
       renderItem={(itemData) => {
        
-return <Goalitem text={itemData.item.text} />;
+return (
+<Goalitem text={itemData.item.text} 
+onDeleteItem ={deleteGoalHandler}
+/>
+);
       }}
       keyExtractor={(item, index)=>{
           return item.id;
